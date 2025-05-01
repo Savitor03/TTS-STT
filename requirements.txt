@@ -1,7 +1,6 @@
 streamlit
-pyttsx3
+gTTS
 speechrecognition
 sounddevice
 soundfile
-pyaudio
 numpy

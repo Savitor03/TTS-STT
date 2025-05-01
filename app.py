@@ -1,19 +1,16 @@
 import streamlit as st
-import pyttsx3
+from gtts import gTTS
 import speech_recognition as sr
 import sounddevice as sd
 import soundfile as sf
 import tempfile
 import os
 
-# TTS function
+# TTS function using gTTS (cloud-friendly)
 def text_to_speech(text):
-    engine = pyttsx3.init()
-    engine.setProperty('rate', 120)
-    engine.setProperty('volume', 1.0)  # Range: 0.0 to 1.0
-    temp_file = 'temp_tts.mp3'
-    engine.save_to_file(text, temp_file)
-    engine.runAndWait()
+    tts = gTTS(text)
+    temp_file = "temp_tts.mp3"
+    tts.save(temp_file)
     return temp_file
 
 # STT function from live recording
